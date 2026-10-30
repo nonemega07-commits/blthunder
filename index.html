@@ -8,6 +8,7 @@
     name="description"
     content="Creative graphic design studio for posters, social media creatives, branding and promotional visuals."
   />
+
   <style>
     :root {
       --bg: #f4f7fb;
@@ -505,6 +506,110 @@
       box-shadow: 0 0 0 4px rgba(200, 169, 107, 0.12);
     }
 
+    .choose-wrap {
+      background: linear-gradient(135deg, #f7f5ff, #fff8f1);
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .choose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .choose-item {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 18px;
+      border: 1px solid rgba(27, 42, 61, 0.06);
+      text-align: left;
+    }
+
+    .choose-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #edf3ff, #f8ead7);
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .choose-item h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .choose-item p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .testimonial {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px 20px;
+      box-shadow: 0 12px 28px rgba(17, 16, 28, 0.04);
+    }
+
+    .stars {
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .testimonial p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 18px;
+      font-size: 0.96rem;
+    }
+
+    .client {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    .client strong {
+      display: block;
+      color: var(--primary);
+      font-size: 0.97rem;
+    }
+
+    .client span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(220px, 1fr));
@@ -688,6 +793,8 @@
       .about-wrap,
       .contact-wrap,
       .service-grid,
+      .choose-grid,
+      .testimonial-grid,
       .portfolio-grid {
         grid-template-columns: 1fr;
       }
@@ -738,6 +845,7 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#testimonials">Reviews</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -906,6 +1014,38 @@
       </div>
     </section>
 
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Why Choose Me</span>
+          <h2>Creative Solutions With Purpose</h2>
+          <p>Every design is built to stand out, communicate clearly, and support your goals with visual confidence.</p>
+        </div>
+
+        <div class="choose-wrap">
+          <div class="choose-grid">
+            <div class="choose-item">
+              <div class="choose-icon">✓</div>
+              <h3>Clear Messaging</h3>
+              <p>Thoughtful layouts and strategic visuals that make your message easy to understand and memorable.</p>
+            </div>
+
+            <div class="choose-item">
+              <div class="choose-icon">★</div>
+              <h3>Original Style</h3>
+              <p>Fresh, modern, and customized design ideas that reflect your brand personality and vision.</p>
+            </div>
+
+            <div class="choose-item">
+              <div class="choose-icon">⚡</div>
+              <h3>Fast & Reliable</h3>
+              <p>Professional attention to detail and efficient project handling from concept to final deliverable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="portfolio">
       <div class="container">
         <div class="section-head">
@@ -919,6 +1059,54 @@
             <div class="portfolio-caption">
               <h3>Creative Concept Poster</h3>
               <span>Creative poster design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Client Feedback</span>
+          <h2>What People Say</h2>
+          <p>Client satisfaction is built on trust, creativity, and thoughtful communication from start to finish.</p>
+        </div>
+
+        <div class="testimonial-grid">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>“The poster design was exactly what we needed. It looked premium, clean, and instantly grabbed attention. Highly recommended.”</p>
+            <div class="client">
+              <div class="avatar">A</div>
+              <div>
+                <strong>Amina</strong>
+                <span>Event Organizer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>“Professional and creative. The social media creatives helped our campaign look more polished and more engaging than before.”</p>
+            <div class="client">
+              <div class="avatar">S</div>
+              <div>
+                <strong>Sameer</strong>
+                <span>Brand Client</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>“The quality of work is excellent and the communication was smooth throughout. I loved the final result and the visual appeal.”</p>
+            <div class="client">
+              <div class="avatar">N</div>
+              <div>
+                <strong>Nazreen</strong>
+                <span>Creative Project</span>
+              </div>
             </div>
           </div>
         </div>
