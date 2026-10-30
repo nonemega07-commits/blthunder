@@ -908,5 +908,87 @@
       window.open("https://wa.me/" + phoneNumber + "?text=" + message, "_blank");
     });
   </script>
+
+<style>
+/* Click-to-enlarge gallery */
+#portfolio img {
+  cursor: zoom-in;
+}
+
+.image-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.image-lightbox.active {
+  display: flex;
+}
+
+.image-lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 38px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: auto;
+}
+</style>
+
+<div class="image-lightbox" id="imageLightbox">
+  <button class="lightbox-close" id="lightboxClose"
+          aria-label="Close image">&times;</button>
+  <img id="lightboxImage" src="" alt="Enlarged design">
+</div>
+
+<script>
+const lightbox = document.getElementById("imageLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const closeButton = document.getElementById("lightboxClose");
+
+document.querySelectorAll("#portfolio img").forEach(function(img) {
+  img.addEventListener("click", function() {
+    lightboxImage.src = this.src;
+    lightboxImage.alt = this.alt;
+    lightbox.classList.add("active");
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  lightboxImage.src = "";
+}
+
+closeButton.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", function(event) {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    closeLightbox();
+  }
+});
+</script>
 </body>
 </html>
