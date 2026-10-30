@@ -392,50 +392,34 @@
       font-size: 0.82rem;
     }
 
-    .services {
-      background: #f0ecff;
-    }
+    <section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <h2>My Services</h2>
+      <p>Creative solutions tailored for businesses, brands, and personal projects.</p>
+    </div>
 
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(220px, 1fr));
-      gap: 22px;
-    }
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="emoji">🎨</div>
+        <h3>Poster Design</h3>
+        <p>Creative posters for launches, events, promotions, and announcements that stand out.</p>
+      </div>
 
-    .service-card {
-      background: white;
-      border: 1px solid rgba(109, 70, 234, 0.08);
-      border-radius: var(--radius);
-      padding: 30px 22px;
-      text-align: center;
-      box-shadow: 0 12px 28px rgba(31, 33, 56, 0.04);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
+      <div class="service-card">
+        <div class="emoji">📱</div>
+        <h3>Social Media Design</h3>
+        <p>High-impact Instagram posts, stories, and social media creatives that boost engagement.</p>
+      </div>
 
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 32px rgba(57, 42, 97, 0.12);
-    }
-
-    .service-card .emoji {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 18px;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #f0ebff, #ffeaf2);
-      font-size: 2rem;
-    }
-
-    .service-card h3 {
-      margin-bottom: 12px;
-      color: var(--primary);
-      font-size: 1.45rem;
-    }
-
-    .service-card p {
-      color: var(--muted);
+      <div class="service-card">
+        <div class="emoji">📢</div>
+        <h3>Advertising Design</h3>
+        <p>Professional promotional graphics for businesses, campaigns, and online visibility.</p>
+      </div>
+    </div>
+  </div>
+</section>
     }
 
     .portfolio-grid {
