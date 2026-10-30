@@ -180,5 +180,30 @@ document.getElementById("bookingForm")
 });
 </script>
 
+<section id="portfolio">
+  <h2>My Creative Works</h2>
+  <p>Explore some of my recent designs.</p>
+
+  <div class="portfolio-gallery">
+    <img src="images/poster1.jpg" alt="Poster design">
+    <img src="images/poster2.jpg" alt="Social media design">
+    <img src="images/poster3.jpg" alt="Event poster">
+  </div>
+</section>
+
+<style>
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.portfolio-gallery img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+</style>
+
 </body>
 </html>
