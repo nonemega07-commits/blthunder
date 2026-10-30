@@ -1,87 +1,234 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
+
+<title>My Design Studio | Jinshad</title>
 
 <style>
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f5f6fa;
-  color: #222;
+  background: #faf9ff;
+  color: #202033;
+  line-height: 1.6;
 }
 
 header {
-  background: #111827;
-  color: white;
-  padding: 25px;
-  text-align: center;
+  background: #ffffff;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 15px #0000000c;
 }
 
-nav {
-  padding: 15px;
-  text-align: center;
-  background: white;
+.logo {
+  font-size: 23px;
+  font-weight: 800;
+  color: #7045e8;
 }
 
 nav a {
-  color: #111827;
   text-decoration: none;
-  margin: 12px;
+  color: #333;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #7045e8;
+}
+
+.hero {
+  padding: 100px 8%;
+  background: linear-gradient(120deg, #eee7ff, #fff0f5);
+  text-align: center;
+}
+
+.hero span {
+  color: #7045e8;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 65px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto 28px;
+  color: #555;
+  font-size: 18px;
+}
+
+.btn {
+  display: inline-block;
+  background: #7045e8;
+  color: white;
+  text-decoration: none;
+  padding: 13px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #5030b5;
 }
 
 section {
-  max-width: 700px;
-  margin: 35px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 14px;
+  padding: 75px 8%;
 }
 
-h2 {
+.section-title {
   text-align: center;
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 35px;
+}
+
+.about {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  font-size: 17px;
+  color: #555;
+}
+
+.services {
+  background: #f0ecff;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 35px;
+}
+
+.service-card {
+  background: white;
+  padding: 30px 22px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 5px 20px #00000008;
+}
+
+.service-card .emoji {
+  font-size: 38px;
+}
+
+.service-card h3 {
+  margin: 12px 0;
+  color: #7045e8;
+}
+
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 35px;
+}
+
+.portfolio-gallery img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px #00000012;
+  transition: transform .3s;
+}
+
+.portfolio-gallery img:hover {
+  transform: translateY(-6px);
+}
+
+.contact {
+  background: linear-gradient(120deg, #eee7ff, #fff0f5);
+}
+
+.contact-form {
+  max-width: 550px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 12px 0 5px;
 }
 
 input, select, textarea {
   width: 100%;
   padding: 13px;
-  margin: 10px 0 18px;
   border: 1px solid #ddd;
-  border-radius: 7px;
+  border-radius: 9px;
   font-size: 15px;
 }
 
-button {
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.contact-form button {
   width: 100%;
-  padding: 14px;
-  background: #111827;
-  color: white;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
+  margin-top: 20px;
   font-size: 16px;
-}
-
-button:hover {
-  background: #374151;
-}
-
-#confirmation {
-  color: green;
-  text-align: center;
-  margin-top: 15px;
 }
 
 footer {
   text-align: center;
   padding: 25px;
-  color: #777;
+  background: #202033;
+  color: white;
+}
+
+@media(max-width: 600px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    text-align: center;
+  }
+
+  nav a {
+    margin: 7px;
+    display: inline-block;
+  }
+
+  .hero {
+    padding: 75px 6%;
+  }
+
+  section {
+    padding: 55px 6%;
+  }
 }
 </style>
 </head>
@@ -89,123 +236,179 @@ footer {
 <body>
 
 <header>
-  <h1>Hello, I'm Your Name</h1>
-  <p>Welcome to my personal portfolio</p>
+  <div class="logo">My Design Studio.</div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#booking">Book a Slot</a>
-</nav>
+<!-- HOME -->
 
-<section id="home">
-  <h2>Welcome</h2>
-  <p>Hello! I'm a beginner web developer.
-  Welcome to my personal portfolio website.</p>
-</section>
+<div class="hero" id="home">
+  <h1>Creative Designs.<br>
+  <span>Powerful Impressions.</span></h1>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I am interested in technology, creativity
-  and learning new skills.</p>
-</section>
-
-<section id="booking">
-  <h2>Book a Slot</h2>
-  <p style="text-align:center;color:#777;">
-    Schedule an appointment with me.
+  <p>
+    Hello, I'm Jinshad — a graphic designer passionate
+    about creating beautiful posters, social media designs
+    and creative visuals.
   </p>
 
-  <form id="bookingForm">
+  <a href="#portfolio" class="btn">Explore My Work</a>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+
+  <p class="about">
+    I am a creative graphic designer passionate about
+    turning ideas into eye-catching visual designs.
+    I specialize in creating unique posters, social media
+    graphics, promotional banners and branding materials.
+
+    My goal is to combine creativity, modern design trends
+    and attention to detail to deliver designs that
+    communicate clearly and leave a lasting impression.
+  </p>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+  <h2 class="section-title">My Services</h2>
+  <p class="section-subtitle">
+    Creative solutions for your design needs.
+  </p>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <div class="emoji">🎨</div>
+      <h3>Poster Design</h3>
+      <p>Creative posters for events, promotions and announcements.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="emoji">📱</div>
+      <h3>Social Media Design</h3>
+      <p>Attractive Instagram posts, stories and social media creatives.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="emoji">📢</div>
+      <h3>Advertising Design</h3>
+      <p>Professional promotional graphics for businesses and brands.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+  <h2 class="section-title">My Creative Works</h2>
+
+  <p class="section-subtitle">
+    A collection of my designs and creative projects.
+  </p>
+
+  <div class="portfolio-gallery">
+
+    <img src="images/IMG-20260127-WA0091.jpg"
+         alt="My Graphic Design">
+
+    <img src="images/Onam%20poster.jpeg"
+         alt="Onam Poster Design">
+
+    <img src="images/image_d789dbdf.jpg"
+         alt="Social Media Design">
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <h2 class="section-title">Let's Work Together</h2>
+
+  <p class="section-subtitle">
+    Have a design project? Send me an enquiry!
+  </p>
+
+  <form class="contact-form" id="contactForm">
 
     <label>Your Name</label>
-    <input type="text" id="name"
-    placeholder="Enter your name" required>
+    <input type="text" id="customerName"
+           placeholder="Enter your name" required>
 
     <label>Email Address</label>
-    <input type="email" id="email"
-    placeholder="Enter your email" required>
+    <input type="email" id="customerEmail"
+           placeholder="Enter your email" required>
 
-    <label>Select Date</label>
-    <input type="date" id="date" required>
-
-    <label>Select Time Slot</label>
-    <select id="time" required>
-      <option value="">Choose a time</option>
-      <option>10:00 AM</option>
-      <option>11:00 AM</option>
-      <option>12:00 PM</option>
-      <option>02:00 PM</option>
-      <option>03:00 PM</option>
-      <option>04:00 PM</option>
+    <label>Choose a Service</label>
+    <select id="service" required>
+      <option value="">Select a service</option>
+      <option>Poster Design</option>
+      <option>Social Media Design</option>
+      <option>Advertising Design</option>
+      <option>Other</option>
     </select>
 
-    <label>Purpose of Booking</label>
-    <textarea id="message"
-    placeholder="Write your message"></textarea>
+    <label>Project Details</label>
+    <textarea id="details"
+      placeholder="Tell me about your design requirements"></textarea>
 
-    <button type="submit">Book Now</button>
-
-    <p id="confirmation"></p>
+    <button type="submit" class="btn">
+      Send Enquiry on WhatsApp
+    </button>
 
   </form>
 </section>
 
 <footer>
-  © 2026 My Portfolio. All Rights Reserved.
+  <p>© 2026 My Design Studio | Designed by Jinshad</p>
 </footer>
 
 <script>
-const dateInput = document.getElementById("date");
-
-dateInput.min = new Date().toISOString().split("T")[0];
-
-document.getElementById("bookingForm")
+document.getElementById("contactForm")
 .addEventListener("submit", function(event) {
 
   event.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const date = dateInput.value;
-  const time = document.getElementById("time").value;
+  // REPLACE WITH YOUR WHATSAPP NUMBER
+  // Include country code, without + or spaces.
+  const phoneNumber = "91XXXXXXXXXX";
 
-  document.getElementById("confirmation").innerText =
-  "Thank you " + name +
-  "! Your booking request has been received.";
+  const name = document.getElementById("customerName").value;
+  const email = document.getElementById("customerEmail").value;
+  const service = document.getElementById("service").value;
+  const details = document.getElementById("details").value;
 
-  this.reset();
-  dateInput.min = new Date().toISOString().split("T")[0];
+  const message =
+    "Hello Jinshad! I want to enquire about a design.%0A%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "Email: " + encodeURIComponent(email) + "%0A" +
+    "Service: " + encodeURIComponent(service) + "%0A" +
+    "Details: " + encodeURIComponent(details);
+
+  if (phoneNumber === "91XXXXXXXXXX") {
+    alert("Please add your WhatsApp number in the website code first.");
+    return;
+  }
+
+  window.open(
+    "https://wa.me/" + phoneNumber + "?text=" + message,
+    "_blank"
+  );
 });
 </script>
-
-<section id="portfolio">
-  <h2>My Creative Works</h2>
-  <p>Explore some of my recent designs.</p>
-
-
-<div class="portfolio-gallery">
-  <img src="images/IMG-20260127-WA0091.jpg" alt="My Design">
-  <img src="images/Onam poster.jpeg" alt="Onam Poster">
-  <img src="images/image_d789dbdf.jpg" alt="Graphic Design">
-</div>
-
-</section>
-
-<style>
-.portfolio-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.portfolio-gallery img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-}
-</style>
 
 </body>
 </html>
