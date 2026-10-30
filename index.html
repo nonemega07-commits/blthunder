@@ -1,414 +1,912 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Design Studio | Jinshad</title>
+  <meta name="description" content="Creative graphic design studio for posters, social media creatives, branding and promotional visuals." />
+  <style>
+    :root {
+      --bg: #f8f5ff;
+      --bg-soft: #f1edff;
+      --card: #ffffff;
+      --primary: #6d46ea;
+      --primary-dark: #4d2bbb;
+      --accent: #ff7aa8;
+      --text: #1d1d2b;
+      --muted: #5f6478;
+      --line: #e9e2ff;
+      --shadow: 0 18px 50px rgba(78, 52, 150, 0.12);
+      --radius: 22px;
+    }
 
-<title>My Design Studio | Jinshad</title>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #faf9ff;
-  color: #202033;
-  line-height: 1.6;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-header {
-  background: #ffffff;
-  padding: 20px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 15px #0000000c;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-.logo {
-  font-size: 23px;
-  font-weight: 800;
-  color: #7045e8;
-}
+    a {
+      text-decoration: none;
+    }
 
-nav a {
-  text-decoration: none;
-  color: #333;
-  margin-left: 20px;
-  font-weight: 600;
-}
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-nav a:hover {
-  color: #7045e8;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(109, 70, 234, 0.08);
+      box-shadow: 0 8px 20px rgba(18, 18, 30, 0.03);
+    }
 
-.hero {
-  padding: 100px 8%;
-  background: linear-gradient(120deg, #eee7ff, #fff0f5);
-  text-align: center;
-}
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 18px;
+    }
 
-.hero span {
-  color: #7045e8;
-}
+    .logo {
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: var(--primary);
+    }
 
-.hero h1 {
-  font-size: clamp(38px, 7vw, 65px);
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
+    .logo span {
+      color: var(--text);
+    }
 
-.hero p {
-  max-width: 650px;
-  margin: 0 auto 28px;
-  color: #555;
-  font-size: 18px;
-}
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
 
-.btn {
-  display: inline-block;
-  background: #7045e8;
-  color: white;
-  text-decoration: none;
-  padding: 13px 25px;
-  border-radius: 30px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-}
+    nav a {
+      color: var(--muted);
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
 
-.btn:hover {
-  background: #5030b5;
-}
+    nav a:hover {
+      color: var(--primary);
+    }
 
-section {
-  padding: 75px 8%;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 16px 28px rgba(109, 70, 234, 0.28);
+    }
 
-.section-title {
-  text-align: center;
-  font-size: 34px;
-  margin-bottom: 12px;
-}
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 32px rgba(109, 70, 234, 0.32);
+    }
 
-.section-subtitle {
-  text-align: center;
-  color: #777;
-  margin-bottom: 35px;
-}
+    .btn.secondary {
+      background: white;
+      color: var(--primary);
+      border: 1px solid rgba(109, 70, 234, 0.12);
+      box-shadow: none;
+    }
 
-.about {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-  font-size: 17px;
-  color: #555;
-}
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 86px 0 72px;
+      background: linear-gradient(135deg, #efe7ff 0%, #fff0f5 100%);
+    }
 
-.services {
-  background: #f0ecff;
-}
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      right: -120px;
+      top: -120px;
+      background: rgba(109, 70, 234, 0.08);
+      border-radius: 50%;
+      filter: blur(10px);
+    }
 
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
-  margin-top: 35px;
-}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
 
-.service-card {
-  background: white;
-  padding: 30px 22px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 5px 20px #00000008;
-}
+    .eyebrow {
+      display: inline-block;
+      background: rgba(109, 70, 234, 0.1);
+      color: var(--primary);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
 
-.service-card .emoji {
-  font-size: 38px;
-}
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+    }
 
-.service-card h3 {
-  margin: 12px 0;
-  color: #7045e8;
-}
+    .hero h1 .highlight {
+      color: var(--primary);
+    }
 
-.portfolio-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
-  margin-top: 35px;
-}
+    .hero p {
+      max-width: 620px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
 
-.portfolio-gallery img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px #00000012;
-  transition: transform .3s;
-}
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 28px;
+    }
 
-.portfolio-gallery img:hover {
-  transform: translateY(-6px);
-}
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 18px;
+      max-width: 420px;
+    }
 
-.contact {
-  background: linear-gradient(120deg, #eee7ff, #fff0f5);
-}
+    .metric {
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 10px 24px rgba(38, 31, 67, 0.04);
+    }
 
-.contact-form {
-  max-width: 550px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-}
+    .metric strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin: 12px 0 5px;
-}
+    .metric span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
 
-input, select, textarea {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #ddd;
-  border-radius: 9px;
-  font-size: 15px;
-}
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-textarea {
-  min-height: 110px;
-  resize: vertical;
-}
+    .visual-card {
+      position: relative;
+      width: min(100%, 420px);
+      background: linear-gradient(135deg, rgba(109, 70, 234, 0.95), rgba(255, 122, 168, 0.9));
+      border-radius: 32px;
+      padding: 24px;
+      color: white;
+      box-shadow: var(--shadow);
+    }
 
-.contact-form button {
-  width: 100%;
-  margin-top: 20px;
-  font-size: 16px;
-}
+    .mini-window {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 22px;
+      padding: 18px;
+      backdrop-filter: blur(8px);
+    }
 
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #202033;
-  color: white;
-}
+    .mini-window .topbar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
 
-@media(max-width: 600px) {
-  header {
-    justify-content: center;
-  }
+    .mini-window .topbar span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.7);
+    }
 
-  nav {
-    text-align: center;
-  }
+    .board {
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 20px;
+      padding: 20px;
+    }
 
-  nav a {
-    margin: 7px;
-    display: inline-block;
-  }
+    .board-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
 
-  .hero {
-    padding: 75px 6%;
-  }
+    .board-box {
+      flex: 1;
+      height: 78px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.18);
+    }
 
-  section {
-    padding: 55px 6%;
-  }
-}
-</style>
+    .board-box.large {
+      height: 110px;
+    }
+
+    .badge {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      background: white;
+      color: var(--primary);
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 12px 16px;
+      box-shadow: 0 18px 32px rgba(88, 54, 160, 0.2);
+    }
+
+    section {
+      padding: 94px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .about-copy {
+      font-size: 1.06rem;
+      color: var(--muted);
+    }
+
+    .about-copy p + p {
+      margin-top: 16px;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .point {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 12px 28px rgba(31, 28, 45, 0.03);
+    }
+
+    .point strong {
+      display: block;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .point span {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .about-visual {
+      background: linear-gradient(135deg, #f1ebff, #fff3f8);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-visual .panel {
+      background: white;
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(109, 70, 234, 0.08);
+    }
+
+    .about-visual h3 {
+      margin-bottom: 18px;
+      font-size: 1.5rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      background: #f3efff;
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
+    .services {
+      background: #f0ecff;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid rgba(109, 70, 234, 0.08);
+      border-radius: var(--radius);
+      padding: 30px 22px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(31, 33, 56, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 32px rgba(57, 42, 97, 0.12);
+    }
+
+    .service-card .emoji {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f0ebff, #ffeaf2);
+      font-size: 2rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 1.45rem;
+    }
+
+    .service-card p {
+      color: var(--muted);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .portfolio-item {
+      overflow: hidden;
+      border-radius: 22px;
+      background: white;
+      border: 1px solid rgba(109, 70, 234, 0.08);
+      box-shadow: 0 12px 28px rgba(17, 16, 28, 0.05);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .portfolio-caption {
+      padding: 16px 18px 20px;
+    }
+
+    .portfolio-caption h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .portfolio-caption span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-panel {
+      background: linear-gradient(135deg, #f4eeff, #fff0f6);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .contact-panel h3 {
+      margin-bottom: 18px;
+      font-size: 2rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(109, 70, 234, 0.08);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--primary);
+    }
+
+    .contact-item span {
+      color: var(--muted);
+    }
+
+    .contact-form {
+      background: white;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: var(--text);
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #ddd;
+      background: #fff;
+      border-radius: 12px;
+      font-size: 1rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(109, 70, 234, 0.1);
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      width: 100%;
+      margin-top: 8px;
+      font-size: 1.02rem;
+    }
+
+    footer {
+      background: #181927;
+      color: rgba(255, 255, 255, 0.9);
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-wrap,
+      .contact-wrap,
+      .service-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-wrap {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .metric-row,
+      .about-points {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .metric-row,
+      .about-points {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <div class="logo">My Design Studio.</div>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<!-- HOME -->
-
-<div class="hero" id="home">
-  <h1>Creative Designs.<br>
-  <span>Powerful Impressions.</span></h1>
-
-  <p>
-    Hello, I'm Jinshad — a graphic designer passionate
-    about creating beautiful posters, social media designs
-    and creative visuals.
-  </p>
-
-  <a href="#portfolio" class="btn">Explore My Work</a>
-</div>
-
-<!-- ABOUT -->
-
-<section id="about">
-  <h2 class="section-title">About Me</h2>
-
-  <p class="about">
-    I am a creative graphic designer passionate about
-    turning ideas into eye-catching visual designs.
-    I specialize in creating unique posters, social media
-    graphics, promotional banners and branding materials.
-
-    My goal is to combine creativity, modern design trends
-    and attention to detail to deliver designs that
-    communicate clearly and leave a lasting impression.
-  </p>
-</section>
-
-<!-- SERVICES -->
-
-<section class="services" id="services">
-  <h2 class="section-title">My Services</h2>
-  <p class="section-subtitle">
-    Creative solutions for your design needs.
-  </p>
-
-  <div class="service-grid">
-
-    <div class="service-card">
-      <div class="emoji">🎨</div>
-      <h3>Poster Design</h3>
-      <p>Creative posters for events, promotions and announcements.</p>
+  <header>
+    <div class="container nav-wrap">
+      <div class="logo">My Design<span>Studio.</span></div>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="service-card">
-      <div class="emoji">📱</div>
-      <h3>Social Media Design</h3>
-      <p>Attractive Instagram posts, stories and social media creatives.</p>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Creative Studio</div>
+          <h1>Creative Designs.<br><span class="highlight">Powerful Impressions.</span></h1>
+          <p>
+            Hello, I'm Jinshad — a graphic designer passionate about crafting standout posters,
+            social media visuals, and branding experiences that make businesses memorable.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn">Explore My Work</a>
+            <a href="#contact" class="btn secondary">Book a Project</a>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric">
+              <strong>4+</strong>
+              <span>Years Experience</span>
+            </div>
+            <div class="metric">
+              <strong>120+</strong>
+              <span>Projects Done</span>
+            </div>
+            <div class="metric">
+              <strong>100%</strong>
+              <span>Creative Focus</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Design preview">
+          <div class="visual-card">
+            <div class="mini-window">
+              <div class="topbar">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="board">
+                <div class="board-row">
+                  <div class="board-box large"></div>
+                  <div class="board-box"></div>
+                </div>
+                <div class="board-row">
+                  <div class="board-box"></div>
+                  <div class="board-box"></div>
+                  <div class="board-box"></div>
+                </div>
+              </div>
+            </div>
+            <div class="badge">Design That Sells</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About Me</h2>
+          <p>I help brands and individuals turn ideas into visual stories that connect, inspire, and convert.</p>
+        </div>
+
+        <div class="about-wrap">
+          <div class="about-copy">
+            <p>
+              I am a creative graphic designer passionate about turning ideas into eye-catching visuals.
+              My work blends originality, current trends, and thoughtful composition to create designs that are both beautiful and effective.
+            </p>
+            <p>
+              From event posters to social media creatives and promotional banners, I design with clarity,
+              consistency, and attention to detail so every piece leaves a strong impression.
+            </p>
+
+            <div class="about-points">
+              <div class="point">
+                <strong>Poster</strong>
+                <span>Event & Promotion</span>
+              </div>
+              <div class="point">
+                <strong>Social</strong>
+                <span>Instagram & Story</span>
+              </div>
+              <div class="point">
+                <strong>Banner</strong>
+                <span>Online & Print</span>
+              </div>
+              <div class="point">
+                <strong>Brand</strong>
+                <span>Identity Materials</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-visual">
+            <div class="panel">
+              <h3>Design Style</h3>
+              <p>Modern, vibrant, clear, and strategically crafted to grab attention and communicate your message beautifully.</p>
+              <div class="chips" aria-label="Design focus tags">
+                <span class="chip">Branding</span>
+                <span class="chip">Social Media</span>
+                <span class="chip">Poster Design</span>
+                <span class="chip">Marketing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>My Services</h2>
+          <p>Creative solutions tailored for businesses, brands, and personal projects.</p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="emoji">🎨</div>
+            <h3>Poster Design</h3>
+            <p>Creative posters for launches, events, promotions, and announcements that stand out.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="emoji">📱</div>
+            <h3>Social Media Design</h3>
+            <p>High-impact Instagram posts, stories, and social media creatives that boost engagement.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="emoji">📢</div>
+            <h3>Advertising Design</h3>
+            <p>Professional promotional graphics for businesses, campaigns, and online visibility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <h2>My Creative Works</h2>
+          <p>A collection of selected visuals and creative projects crafted with attention and purpose.</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <img src="images/IMG-20260127-WA0091.jpg" alt="Graphic design work" />
+            <div class="portfolio-caption">
+              <h3>Brand Visual</h3>
+              <span>Creative concept poster</span>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <img src="images/Onam%20poster.jpeg" alt="Onam poster design" />
+            <div class="portfolio-caption">
+              <h3>Festival Poster</h3>
+              <span>Event promotional design</span>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <img src="images/image_d789dbdf.jpg" alt="Social media design" />
+            <div class="portfolio-caption">
+              <h3>Social Media Creative</h3>
+              <span>Digital marketing visual</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Let's Work Together</h2>
+          <p>Have a project in mind? Send me your idea and I’ll help turn it into a design that connects.</p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="contact-panel">
+            <h3>Start Your Project</h3>
+            <p>Whether you need a poster, campaign visuals, or a social media creative, I’m ready to collaborate.</p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>Design Focus</strong>
+                <span>Posters, social creatives, branding, advertising visuals</span>
+              </div>
+              <div class="contact-item">
+                <strong>Response Time</strong>
+                <span>Quick replies for new project enquiries</span>
+              </div>
+              <div class="contact-item">
+                <strong>Location</strong>
+                <span>Available for remote and project-based collaborations</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="field">
+              <label for="customerName">Your Name</label>
+              <input type="text" id="customerName" placeholder="Enter your name" required />
+            </div>
+
+            <div class="field">
+              <label for="customerEmail">Email Address</label>
+              <input type="email" id="customerEmail" placeholder="Enter your email" required />
+            </div>
+
+            <div class="field">
+              <label for="service">Choose a Service</label>
+              <select id="service" required>
+                <option value="">Select a service</option>
+                <option>Poster Design</option>
+                <option>Social Media Design</option>
+                <option>Advertising Design</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="details">Project Details</label>
+              <textarea id="details" placeholder="Tell me about your design requirements"></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send Enquiry on WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 My Design Studio | Designed by Jinshad</p>
     </div>
+  </footer>
 
-    <div class="service-card">
-      <div class="emoji">📢</div>
-      <h3>Advertising Design</h3>
-      <p>Professional promotional graphics for businesses and brands.</p>
-    </div>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
 
-  </div>
-</section>
+      const phoneNumber = "91XXXXXXXXXX";
+      const name = document.getElementById("customerName").value.trim();
+      const email = document.getElementById("customerEmail").value.trim();
+      const service = document.getElementById("service").value;
+      const details = document.getElementById("details").value.trim();
 
-<!-- PORTFOLIO -->
+      const message =
+        "Hello Jinshad! I want to enquire about a design.%0A%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Email: " + encodeURIComponent(email) + "%0A" +
+        "Service: " + encodeURIComponent(service) + "%0A" +
+        "Details: " + encodeURIComponent(details);
 
-<section id="portfolio">
-  <h2 class="section-title">My Creative Works</h2>
+      if (phoneNumber === "91XXXXXXXXXX") {
+        alert("Please add your WhatsApp number in the website code first.");
+        return;
+      }
 
-  <p class="section-subtitle">
-    A collection of my designs and creative projects.
-  </p>
-
-  <div class="portfolio-gallery">
-
-    <img src="images/IMG-20260127-WA0091.jpg"
-         alt="My Graphic Design">
-
-    <img src="images/Onam%20poster.jpeg"
-         alt="Onam Poster Design">
-
-    <img src="images/image_d789dbdf.jpg"
-         alt="Social Media Design">
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-  <h2 class="section-title">Let's Work Together</h2>
-
-  <p class="section-subtitle">
-    Have a design project? Send me an enquiry!
-  </p>
-
-  <form class="contact-form" id="contactForm">
-
-    <label>Your Name</label>
-    <input type="text" id="customerName"
-           placeholder="Enter your name" required>
-
-    <label>Email Address</label>
-    <input type="email" id="customerEmail"
-           placeholder="Enter your email" required>
-
-    <label>Choose a Service</label>
-    <select id="service" required>
-      <option value="">Select a service</option>
-      <option>Poster Design</option>
-      <option>Social Media Design</option>
-      <option>Advertising Design</option>
-      <option>Other</option>
-    </select>
-
-    <label>Project Details</label>
-    <textarea id="details"
-      placeholder="Tell me about your design requirements"></textarea>
-
-    <button type="submit" class="btn">
-      Send Enquiry on WhatsApp
-    </button>
-
-  </form>
-</section>
-
-<footer>
-  <p>© 2026 My Design Studio | Designed by Jinshad</p>
-</footer>
-
-<script>
-document.getElementById("contactForm")
-.addEventListener("submit", function(event) {
-
-  event.preventDefault();
-
-  // REPLACE WITH YOUR WHATSAPP NUMBER
-  // Include country code, without + or spaces.
-  const phoneNumber = "91XXXXXXXXXX";
-
-  const name = document.getElementById("customerName").value;
-  const email = document.getElementById("customerEmail").value;
-  const service = document.getElementById("service").value;
-  const details = document.getElementById("details").value;
-
-  const message =
-    "Hello Jinshad! I want to enquire about a design.%0A%0A" +
-    "Name: " + encodeURIComponent(name) + "%0A" +
-    "Email: " + encodeURIComponent(email) + "%0A" +
-    "Service: " + encodeURIComponent(service) + "%0A" +
-    "Details: " + encodeURIComponent(details);
-
-  if (phoneNumber === "91XXXXXXXXXX") {
-    alert("Please add your WhatsApp number in the website code first.");
-    return;
-  }
-
-  window.open(
-    "https://wa.me/" + phoneNumber + "?text=" + message,
-    "_blank"
-  );
-});
-</script>
-
+      window.open("https://wa.me/" + phoneNumber + "?text=" + message, "_blank");
+    });
+  </script>
 </body>
 </html>
